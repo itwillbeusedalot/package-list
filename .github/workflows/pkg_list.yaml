@@ -10,7 +10,7 @@ jobs:
         name: Code checkout
         uses: actions/checkout@v2
       -
-        name: Set up QEMU for arm64
+        name: Set up QEMU for amd64
         id: qemu
         uses: docker/setup-qemu-action@v1
         with:
