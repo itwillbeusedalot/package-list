@@ -24,7 +24,8 @@ chmod +x test.sh
 
 ./test.sh > total.txt
 
-
+ls -la
+pwd
 
 
 uname -a
