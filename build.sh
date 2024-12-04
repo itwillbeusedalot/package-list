@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo '#!/bin/bash
 
 # Initialize total size variable
