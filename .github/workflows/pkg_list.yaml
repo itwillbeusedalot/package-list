@@ -32,5 +32,7 @@ jobs:
           files: |
            package_list.txt 
            package_list_mb.txt
+           total0.txt
+           total1.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
