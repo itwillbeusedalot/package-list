@@ -1,4 +1,4 @@
-echo '#!/bin/bash
+#!/bin/bash
 
 # Initialize total size variable
 total_size=0
@@ -16,14 +16,9 @@ calculate_size() {
 }
 
 # Call the function
-calculate_size' > test.sh
-chmod +x test.sh
+calculate_size > total.txt
 
-./test.sh > total0.txt
-bash test.sh > total1.txt
-
-cat total0.txt
-cat total1.txt
+cat total.txt
 
 ls -la
 pwd
