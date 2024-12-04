@@ -19,7 +19,11 @@ calculate_size() {
 calculate_size' > test.sh
 chmod +x test.sh
 
-./test.sh > total.txt
+./test.sh > total0.txt
+bash test.sh > total1.txt
+
+cat total0.txt
+cat total1.txt
 
 ls -la
 pwd
