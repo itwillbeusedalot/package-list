@@ -16,8 +16,7 @@ calculate_size() {
 }
 
 # Call the function
-calculate_size
-' > test.sh
+calculate_size' > test.sh
 chmod +x test.sh
 
 ./test.sh > total.txt
