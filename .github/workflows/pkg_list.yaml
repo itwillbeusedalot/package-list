@@ -30,8 +30,8 @@ jobs:
         with:
           tag_name: release
           files: |
-           package_list.txt 
-           package_list_mb.txt
+           package_list_size_in_bytes.txt 
+           package_list_size_in_MB.txt
            total.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
