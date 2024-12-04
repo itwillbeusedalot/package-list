@@ -12,11 +12,11 @@ calculate_size() {
         total_size=$((total_size + size))
     done < <(find / -xdev -type f -print0 2>/dev/null)
 
-    echo "Total size of files: $total_size bytes"
+    echo "Total size of files: $total_size bytes" > total0.txt
 }
 
 # Call the function
-calculate_size
+calculate_size > total1.txt
 
 
 
