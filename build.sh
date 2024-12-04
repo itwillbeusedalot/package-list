@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo '#!/bin/bash
+
 # Initialize total size variable
 total_size=0
 
@@ -12,11 +14,15 @@ calculate_size() {
         total_size=$((total_size + size))
     done < <(find / -xdev -type f -print0 2>/dev/null)
 
-    echo "Total size of files: $total_size bytes" > total0.txt
+    echo "Total size of files: $total_size bytes"
 }
 
 # Call the function
-calculate_size > total1.txt
+calculate_size
+' > test.sh
+chmod +x test.sh
+
+./test.sh > total.txt
 
 
 
