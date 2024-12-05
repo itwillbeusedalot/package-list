@@ -32,6 +32,6 @@ jobs:
           files: |
            package_list_size_in_bytes.txt 
            package_list_size_in_MB.txt
-           total.txt
+           total_size.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
