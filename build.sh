@@ -6,7 +6,21 @@ dpkg-query -W --showformat='${Installed-Size}\t${Package}\n' | awk '{printf "%10
 
 dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n > package_list_size_in_bytes.txt
 
-sudo apt purge -y * > purge.txt
+PACKAGES_TO_KEEP="apparmor apt dbus e2fsprogs netbase sudo systemd systemd-resolved systemd-sysv udev"
+
+# Get all installed packages
+INSTALLED_PACKAGES=$(dpkg-query -l | awk '{print $2}')
+
+# Remove packages not in the list
+for package in $INSTALLED_PACKAGES; do
+  if ! echo "$PACKAGES_TO_KEEP" | grep -q "$package"; then
+    apt purge -y "$package"
+  fi
+done
+
+# Remove any remaining unnecessary packages
+apt autoclean -y
+apt clean
 
 dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n > purge_list.txt
 
