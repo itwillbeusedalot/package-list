@@ -6,9 +6,9 @@ dpkg-query -W --showformat='${Installed-Size}\t${Package}\n' | awk '{printf "%10
 
 dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n > package_list_size_in_bytes.txt
 
-apt purge *
+sudo apt purge -y * > purge.txt
 
-dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n > purge_list.txt
 
 df -h
 
@@ -31,3 +31,6 @@ pwd
 cat total_size.txt
 
 du -sh /* 2>/dev/null | sort -rh
+
+cat purge.txt
+cat purge_list.txt
