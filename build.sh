@@ -9,7 +9,10 @@ dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n > package_list_size_i
 PACKAGES_TO_KEEP="apparmor apt dbus e2fsprogs netbase sudo systemd systemd-resolved systemd-sysv udev"
 
 # Get all installed packages
-INSTALLED_PACKAGES=$(dpkg-query -l | awk '{print $2}')
+PACKAGES_TO_KEEP="apparmor apt dbus e2fsprogs netbase sudo systemd systemd-resolved systemd-sysv udev"
+
+# Get all installed packages
+INSTALLED_PACKAGES=$(dpkg-query -W -f='${Package}\n')
 
 # Remove packages not in the list
 for package in $INSTALLED_PACKAGES; do
