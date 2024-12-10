@@ -50,5 +50,4 @@ cat total_size.txt
 
 du -sh /* 2>/dev/null | sort -rh
 
-cat purge.txt
-cat purge_list.txt
+cat purge_list_essential.txt
