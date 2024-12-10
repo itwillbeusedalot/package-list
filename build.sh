@@ -43,9 +43,4 @@ calculate_size() {
 # Call the function
 calculate_size > total_size.txt
 ls -la
-pwd
-cat total_size.txt
-
 du -sh /* 2>/dev/null | sort -rh
-
-cat purge_list_essential.txt
