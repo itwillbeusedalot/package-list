@@ -16,7 +16,7 @@ INSTALLED_PACKAGES=$(dpkg-query -W -f='${Package}\n')
 # Remove packages not in the list
 for package in $INSTALLED_PACKAGES; do
   if ! echo "$PACKAGES_TO_KEEP" | grep -q "$package"; then
-    sudo apt purge -y --allow-remove-essential "$package"
+     apt purge -y --allow-remove-essential "$package"
   fi
 done
 
