@@ -24,23 +24,5 @@ done
 apt autoclean -y
 apt clean
 
-dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n > purge_list_essential.txt
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' > purge_list_essential.txt
 
-df -h
-
-# Initialize total size variable
-total_size=0
-# Function to calculate size
-calculate_size() {
-    # Use find to iterate over files, ignoring virtual filesystems and permission errors
-    while IFS= read -r -d '' file; do
-        # Get the size of the file and add it to total_size
-        size=$(stat --format="%s" "$file" 2>/dev/null)
-        total_size=$((total_size + size))
-    done < <(find / -xdev -type f -print0 2>/dev/null)
-    echo "Total size of files: $total_size bytes"
-}
-# Call the function
-calculate_size > total_size.txt
-ls -la
-du -sh /* 2>/dev/null | sort -rh
