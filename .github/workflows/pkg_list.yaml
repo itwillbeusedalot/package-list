@@ -34,6 +34,5 @@ jobs:
            package_list_size_in_MB.txt
            total_size.txt
            purge_list.txt
-           purge_list_essential.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
